@@ -124,7 +124,9 @@ class Decoder(srd.Decoder):
                     ascii = ', LF (line feed)'
                 elif self.hex == 13:
                     ascii = ', CR (carriage return)'
-                elif self.hex > 31 and self.hex < 127:
+                elif self.hex == 32:
+                    ascii = ', SPACE'
+                elif self.hex > 32 and self.hex < 127:
                     ascii = ', Ascii: ' + chr(self.hex)
                 else:
                     ascii = ', Ascii: non printable'
